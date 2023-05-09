@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>This Week's Expenses</title>
+</head>
+<body>
+    <h1>This Week's Expenses</h1>
+    <ul>
+        {% for expense in expenses %}
+        <li>{{ expense.name }}: ${{ expense.amount }} on {{ expense.date }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">Back</a>
+</body>
+</html>

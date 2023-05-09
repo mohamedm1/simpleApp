@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <h1>Budget Tracker</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=20) }}
+        </p>
+        <p>
+            {{ form.amount.label }}<br>
+            {{ form.amount(size=20) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <h2>Expenses</h2>
+    <ul>
+        {% for expense in expenses %}
+        <li>{{ expense.name }}: ${{ expense.amount }} on {{ expense.date }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('week') }}">View this week's expenses</a>
+</body>
+</html>
